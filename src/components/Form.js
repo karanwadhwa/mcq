@@ -49,7 +49,7 @@ class Form extends Component {
     return (
       <div className="form-container">
         {upcomingQuestions.length === 0 ? (
-          <Result />
+          <Result answeredQuestions={answeredQuestions} />
         ) : (
           <MCQ
             currentQuestion={currentQuestion}
