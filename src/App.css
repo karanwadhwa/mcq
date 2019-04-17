@@ -41,3 +41,13 @@ h5,
 h6 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
+
+.form-container {
+  margin: 35px 10% 35px 10%;
+}
+
+.mcq {
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 20px 25px 20px 25px;
+}
