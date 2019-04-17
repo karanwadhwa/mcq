@@ -22,12 +22,22 @@ class MCQ extends Component {
   };
 
   render() {
-    const { currentQuestion } = this.props;
+    const { currentQuestion, selectedOption, submitAnswer } = this.props;
     return (
       <div className="mcq">
         <h5>{currentQuestion.question}</h5>
         <hr />
         <div>{this.renderOptions()}</div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-outline-primary submit-button"
+            onClick={submitAnswer}
+            disabled={selectedOption === ""}
+          >
+            Submit Answer
+          </button>
+        </div>
       </div>
     );
   }

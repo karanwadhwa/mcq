@@ -51,3 +51,8 @@ h6 {
   border-radius: 5px;
   padding: 20px 25px 20px 25px;
 }
+
+.submit-button {
+  margin: 20px 0px 20px 0px;
+  border-radius: 20px;
+}

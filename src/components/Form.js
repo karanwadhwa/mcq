@@ -14,6 +14,30 @@ class Form extends Component {
 
   selectOption = selectedOption => this.setState({ selectedOption });
 
+  submitAnswer = () => {
+    // update answeredQuestions array
+    let answeredQuestions = this.state.answeredQuestions;
+    answeredQuestions.push({
+      ...this.state.currentQuestion,
+      selectedAnswer: this.state.selectedOption
+    });
+
+    // update upcomingQuestions array
+    let upcomingQuestions = this.state.upcomingQuestions;
+    const currentQuestionIndex = upcomingQuestions.findIndex(
+      question => question.id === this.state.currentQuestion.id
+    );
+    upcomingQuestions.splice(currentQuestionIndex, 1);
+
+    // reset state
+    this.setState({
+      currentQuestion: upcomingQuestions[0],
+      selectedOption: "",
+      answeredQuestions,
+      upcomingQuestions
+    });
+  };
+
   render() {
     const {
       currentQuestion,
@@ -24,13 +48,18 @@ class Form extends Component {
 
     return (
       <div className="form-container">
-        <MCQ
-          currentQuestion={currentQuestion}
-          selectedOption={selectedOption}
-          answeredQuestions={answeredQuestions}
-          upcomingQuestions={upcomingQuestions}
-          selectOption={this.selectOption}
-        />
+        {upcomingQuestions.length === 0 ? (
+          <Result />
+        ) : (
+          <MCQ
+            currentQuestion={currentQuestion}
+            selectedOption={selectedOption}
+            answeredQuestions={answeredQuestions}
+            upcomingQuestions={upcomingQuestions}
+            selectOption={this.selectOption}
+            submitAnswer={this.submitAnswer}
+          />
+        )}
       </div>
     );
   }
