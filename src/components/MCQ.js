@@ -33,6 +33,7 @@ class MCQ extends Component {
             type="button"
             className="btn btn-outline-primary submit-button"
             onClick={submitAnswer}
+            // disable submit until the user selects an option
             disabled={selectedOption === ""}
           >
             Submit Answer

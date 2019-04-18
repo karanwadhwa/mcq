@@ -4,7 +4,9 @@ export default function Navbar({ current, length }) {
   return (
     <div>
       <div className="row flex-nowrap justify-content-between align-items-center header-row">
-        <p className="header-logo text-dark">MCQ</p>
+        <a href="/" className="header-logo text-dark">
+          MCQ
+        </a>
         <p className="header-progress text-dark">
           Question {current} of {length}
         </p>
